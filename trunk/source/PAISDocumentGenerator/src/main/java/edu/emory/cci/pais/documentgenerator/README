@@ -1,0 +1,18 @@
+This is a Maven 2 project. Maven has to be installed in order to compile this project. The maven plugin for eclipse is highly recommended for development.
+
+Two additional jar files have to be installed in your local maven repository in order to compile this project. This task can be skipped if it was already executed. The jar files for these dependencies are located in the folder /lib. The jar files can be installed in your local maven repository by executing the following commands from the /lib folder:
+
+mvn install:install-file -DgroupId=PAIS -DartifactId=paismodel -Dversion=1.0 -Dfile=D:\Projects\PAIS\PAISDocumentGenerator\lib\paismodel1.0.jar -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -DgroupId=PAIS -DartifactId=PAISIdentifierGenerator -Dversion=1.0.0-SNAPSHOT -Dpackaging=jar -Dfile=D:\Projects\PAIS\PAISIdentifierGenerator\target\PAISIdentifierGenerator-1.0.0-SNAPSHOT.jar
+
+
+To create a distribution of the PAIS Document Generator, type the following commands:
+
+mvn clean
+mvn assembly:assembly
+
+The resulting jars will be created in the folder /target.
+
+The jar with the file name containing the description "jar-with-dependencies" can be run stand alone.
+
+The format of the text files used as input for this tool is described in the class TextFileInputDataReader.java and in the wiki site of the PAIS project.

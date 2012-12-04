@@ -1,0 +1,21 @@
+This is a Maven 2 project. Maven has to be installed in order to compile this project. The maven plugin for eclipse is highly recommended for development.
+
+Before running the programs, it is necessary to install the IBM db2 JDBC driver in the local maven repository. The following two commands accomplish this task:
+
+mvn install:install-file -DgroupId=db2jcc -DartifactId=db2jcc -Dversion=1.0 -Dfile=db2jcc.jar -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -DgroupId=db2jcc -DartifactId=db2jcc_license -Dversion=1.0 -Dfile=db2jcc_license_cu.jar -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -DgroupId=PAIS -DartifactId=PAISDB2Helper -Dversion=1.0.0-SNAPSHOT -Dpackaging=jar -Dfile=/path/to/file
+
+e.g.: 
+mvn install:install-file -DgroupId=db2jcc -DartifactId=db2jcc -Dversion=1.0 -Dfile=D:\develop\IBM\SQLLIB\java\db2jcc.jar -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -DgroupId=db2jcc -DartifactId=db2jcc_license -Dversion=1.0 -Dfile=D:\develop\IBM\SQLLIB\java\db2jcc_license_cu.jar -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -DgroupId=PAIS -DartifactId=PAISDB2Helper -Dversion=1.0.0-SNAPSHOT -Dpackaging=jar -Dfile=D:\Projects\PAIS\PAISDB2Helper\target\PAISDB2Helper-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+
+To create a distribution of the PAIS Document Uploader, type the following commands:
+
+mvn clean
+mvn assembly:assembly
+
+The resulting jars will be created in the folder /target.
+
+The jar with the file name containing the description "jar-with-dependencies" can be run stand alone.

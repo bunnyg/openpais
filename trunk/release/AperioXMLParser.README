@@ -1,0 +1,14 @@
+Examples:
+
+* Convert a single file:	
+  java -jar  AperioXMLParser.jar -ft file -i d:\projects\data\lumens\TCGA-02-0001-01C-01-BS1.xml  -o c:\temp\data
+
+* Convert all files in a folder: 
+  java -jar  AperioXMLParser.jar -ft folder -i d:\projects\data\lumens  -o c:\temp\data	
+
+* Or:
+
+  java -jar  AperioXMLParser.jar -i d:\projects\data\lumens  -o c:\temp\data	
+  
+* Or:  
+  java -jar  AperioXMLParser.jar -i d:\projects\data\lumens  -o c:\temp\data	-ft Vessel
