@@ -1,0 +1,158 @@
+<loadingconfig>
+	<tables>
+		<table name="regionTable" tableName="PAIS.REGION">
+			<attribute path="Region/@id" 			 name="REGION_ID"  	  		    type="DECIMAL" />		
+			<attribute path="Region/@name"  		 name="NAME" 		  			type="VARCHAR" />
+			<attribute path="Region/@x" 			 name="X" 		  				type="DOUBLE" />
+			<attribute path="Region/@y" 			 name="Y" 		  				type="DOUBLE" />
+			<attribute path="Region/@height" 		 name="HEIGHT" 		  		    type="DOUBLE" />
+			<attribute path="Region/@width"			 name="WIDTH" 		  			type="DOUBLE" />
+			<attribute path="Region/@zoomResolution" name="ZOOMRESOLUTION" 		    type="DOUBLE" />
+			<attribute path="Region/@coordinateResolution" name="COORDINATERESOLUTION" type="DOUBLE" />
+			<attribute path="Region/@coordinateReference"  name="COORDINATEREFERENCE"  type="VARCHAR" />
+			<attribute path="ImageReference/@id" 		   name="IMAGEREFERENCE_ID"    type="DECIMAL" />
+			<attribute path="PAIS/@uid" 			 	   name="PAIS_UID" 		   	type="VARCHAR" />
+		</table>
+	
+		<table name="markupTable" tableName="">
+			<attribute path="ImageReference/@name"   	name="NAME"  				type="VARCHAR"  />
+			<attribute path="GeometricShape/@id"     	name="GEOMETRICSHAPE_ID"  	type="DECIMAL"  />
+			<attribute path="Markup/@id"             	name="MARKUP_ID"  			type="DECIMAL"  />
+			<attribute path="Annotation/@id"         	name="ANNOTATION_ID"  		type="DECIMAL"  />
+			<attribute path="Provenance@id"          	name="PROVENANCE_ID"  		type="DECIMAL"  />
+			<attribute path="Region/@name"           	name="TILENAME"  			type="VARCHAR"  />
+			<attribute path="PAIS/@uid"              	name="PAIS_UID"  			type="VARCHAR"  />				
+		</table>
+		
+		<table name="markupPolygonTable" tableName="PAIS.MARKUP_POLYGON">
+			<attribute path="ImageReference/@name" 	name="NAME" 					type="VARCHAR" /> 
+			<attribute path="GeometricShape/@id" 	name="GEOMETRICSHAPE_ID" 		type="DECIMAL" />
+			<attribute path="Markup/@id" 			name="MARKUP_ID" 				type="DECIMAL" />
+			<attribute path="Annotation/@id" 		name="ANNOTATION_ID" 			type="DECIMAL" />
+			<attribute path="GeometricShape/@points" name="POLYGON" 				type="VARCHAR" />
+			<attribute path="Provenance@id" 		name="PROVENANCE_ID" 			type="DECIMAL" />
+			<attribute path="Region/@name"  		name="TILENAME" 				type="VARCHAR" />
+			<attribute path="PAIS/@uid"			name="PAIS_UID" 				type="VARCHAR" />
+		</table>
+		
+		<table name="flatCalculationTable" tableName="PAIS.CALCULATION_FLAT">
+			<attribute path="Markup/@id" 			name="MARKUP_ID" 				type="DECIMAL" />
+			<attribute path="Annotation/@id"		name="ANNOTATION_ID" 			type="DECIMAL" />
+			<attribute path="Region/@name" 			name="TILENAME" 				type="VARCHAR" />
+			<attribute path="PAIS/@uid" 			name="PAIS_UID" 				type="VARCHAR" />
+			<attribute path="Provenance/@id" 		name="PROVENANCE_ID" 			type="DECIMAL" />
+			<attribute path="Annotation/@name" 		name="ANNOTATION_NAME" 			type="VARCHAR" />
+		</table>		
+		
+		<table name="annotationMarkupTable" tableName="PAIS.ANNOTATION_MARKUP">
+			<attribute path="Markup/@id" 			name="MARKUP_ID" 				type="DECIMAL" />  
+			<attribute path="Annotation/@id" 		name="ANNOTATION_ID"			type="DECIMAL" />     
+			<attribute path="PAIS/@uid" 			name="PAIS_UID" 				type="VARCHAR" /> 
+		</table>
+
+		<table name="observationOrdinalMultiTable" tableName="PAIS.OBSERVATION_QUANTIFICATION_ORDINAL">
+			<attribute path="Observation/@id"  				name="OBSERVATION_ID" 			type="DECIMAL" />
+			<attribute path="Observation/@name"  			name="OBSERVATION_NAME" 		type="VARCHAR" /> 
+			<attribute path="Observation/@annotatorConfidence" 	name="ANNOTATORCONFIDENCE" 	type="DOUBLE" />
+			<attribute path="Quantification/@id" 			name="QUANTIFICATION_ID" 		type="DECIMAL" /> 
+			<attribute path="Quantification/@name" 			name="QUANTIFICATION_NAME"  	type="VARCHAR"  /> 
+			<attribute path="Quantification/@value" 		name="QUANTIFICATION_VALUE" 	type="DOUBLE" />
+			<attribute path="Quantification/@dataType" 		name="QUANTIFICATION_DATATYPE" 	type="VARCHAR" /> 			
+		</table>
+		
+		<table name="observationNominalMultiTable" tableName="PAIS.OBSERVATION_QUANTIFICATION_NOMINAL">
+			<attribute path="Observation/@id"  					name="OBSERVATION_ID" 		type="DECIMAL" />
+			<attribute path="Observation/@name"  				name="OBSERVATION_NAME"		type="VARCHAR" /> 
+			<attribute path="Observation/@annotatorConfidence" 	name="ANNOTATORCONFIDENCE"	type="DOUBLE" />
+			<attribute path="Quantification/@id"				name="QUANTIFICATION_ID"	type="DECIMAL" /> 
+			<attribute path="Quantification/@name"				name="QUANTIFICATION_NAME"	type="VARCHAR" /> 
+			<attribute path="Quantification/@value"				name="QUANTIFICATION_VALUE"	type="VARCHAR" /> 
+		</table>
+
+		<table name="observationSingleTable" tableName="">
+			<attribute path="Provenance/@id" 						name="PROVENANCE_ID"			type="DECIMAL" />
+			<attribute path="Markup/@id" 							name="MARKUP_ID"				type="DECIMAL" /> 
+			<attribute path="Annotation/@id" 						name="ANNOTATION_ID"			type="DECIMAL" />    
+			<attribute path="Region/@name"  						name="TILENAME" 				type="VARCHAR" />
+			<attribute path="PAIS/@uid"  							name="PAIS_UID" 				type="VARCHAR" />   			
+		</table>	
+		
+		<table name="featureTable" tableName="PAIS.CALCULATION_FLAT">
+			<attribute name="AREA" 					type="DOUBLE" />
+			<attribute name="PERIMETER" 			type="DOUBLE" />
+			<attribute name="ECCENTRICITY" 			type="DOUBLE" />
+			<attribute name="CIRCULARITY"	 		type="DOUBLE" />
+			<attribute name="MAJOR_AXIS" 			type="DOUBLE" />
+			<attribute name="MINOR_AXIS" 			type="DOUBLE" />  
+			<attribute name="EXTENT_RATIO" 			type="DOUBLE" />
+			<attribute name="MEAN_INTENSITY" 		type="DOUBLE" />
+			<attribute name="MAX_INTENSITY"  		type="DOUBLE" />
+			<attribute name="MIN_INTENSITY"  		type="DOUBLE" />
+			<attribute name="STD_INTENSITY"  		type="DOUBLE" />
+			<attribute name="ENTROPY" 				type="DOUBLE" />
+			<attribute name="ENERGY" 				type="DOUBLE" />
+			<attribute name="SKEWNESS" 				type="DOUBLE" />
+			<attribute name="KURTOSIS" 				type="DOUBLE" />
+			<attribute name="MEAN_GRADIENT_MAGNITUDE" 		type="DOUBLE" />
+			<attribute name="STD_GRADIENT_MAGNITUDE" 		type="DOUBLE" />   
+			<attribute name="ENTROPY_GRADIENT_MAGNITUDE" 	type="DOUBLE" />   
+			<attribute name="ENERGY_GRADIENT_MAGNITUDE" 	type="DOUBLE" />   
+			<attribute name="SKEWNESS_GRADIENT_MAGNITUDE" 	type="DOUBLE" /> 
+			<attribute name="KURTOSIS_GRADIENT_MAGNITUDE" 	type="DOUBLE" />   
+			<attribute name="SUM_CANNY_PIXEL" 				type="DOUBLE" />
+			<attribute name="MEAN_CANNY_PIXEL" 				type="DOUBLE" />
+			<attribute name="CYTO_H_MeanIntensity" 			type="DOUBLE" /> 
+			<attribute name="CYTO_H_MeanMedianDifferenceIntensity" type="DOUBLE" /> 
+			<attribute name="CYTO_H_MaxIntensity" 			type="DOUBLE" /> 
+			<attribute name="CYTO_H_MinIntensity" 			type="DOUBLE" /> 
+			<attribute name="CYTO_H_StdIntensity" 			type="DOUBLE" />
+			<attribute name="CYTO_H_Entropy" 				type="DOUBLE" /> 
+			<attribute name="CYTO_H_Energy" 				type="DOUBLE" /> 
+			<attribute name="CYTO_H_Skewness" 				type="DOUBLE" /> 
+			<attribute name="CYTO_H_Kurtosis" 				type="DOUBLE" />
+			<attribute name="CYTO_H_MeanGradMag" 			type="DOUBLE" /> 
+			<attribute name="CYTO_H_StdGradMag" 			type="DOUBLE" /> 
+			<attribute name="CYTO_H_EntropyGradMag" 		type="DOUBLE" /> 
+			<attribute name="CYTO_H_EnergyGradMag" 			type="DOUBLE" />
+			<attribute name="CYTO_H_SkewnessGradMag" 		type="DOUBLE" /> 
+			<attribute name="CYTO_H_KurtosisGradMag" 		type="DOUBLE" /> 
+			<attribute name="CYTO_H_SumCanny" 				type="DOUBLE" /> 
+			<attribute name="CYTO_H_MeanCanny" 				type="DOUBLE" />
+			<attribute name="CYTO_E_MeanIntensity" 			type="DOUBLE" /> 
+			<attribute name="CYTO_E_MeanMedianDifferenceIntensity" type="DOUBLE" /> 
+			<attribute name="CYTO_E_MaxIntensity" 			type="DOUBLE" /> 
+			<attribute name="CYTO_E_MinIntensity" 			type="DOUBLE" /> 
+			<attribute name="CYTO_E_StdIntensity" 			type="DOUBLE" />
+			<attribute name="CYTO_E_Entropy" 				type="DOUBLE" /> 
+			<attribute name="CYTO_E_Energy" 				type="DOUBLE" /> 
+			<attribute name="CYTO_E_Skewness" 				type="DOUBLE" /> 
+			<attribute name="CYTO_E_Kurtosis" 				type="DOUBLE" />
+			<attribute name="CYTO_E_MeanGradMag" 			type="DOUBLE" /> 
+			<attribute name="CYTO_E_StdGradMag" 			type="DOUBLE" /> 
+			<attribute name="CYTO_E_EntropyGradMag" 		type="DOUBLE" /> 
+			<attribute name="CYTO_E_EnergyGradMag" 			type="DOUBLE" />
+			<attribute name="CYTO_E_SkewnessGradMag" 		type="DOUBLE" /> 
+			<attribute name="CYTO_E_KurtosisGradMag" 		type="DOUBLE" /> 
+			<attribute name="CYTO_E_SumCanny" 				type="DOUBLE" /> 
+			<attribute name="CYTO_E_MeanCanny" 				type="DOUBLE" />
+			<attribute name="CYTO_G_MeanIntensity"			type="DOUBLE" /> 
+			<attribute name="CYTO_G_MeanMedianDifferenceIntensity" type="DOUBLE" /> 
+			<attribute name="CYTO_G_MaxIntensity" 			type="DOUBLE" /> 
+			<attribute name="CYTO_G_MinIntensity" 			type="DOUBLE" /> 
+			<attribute name="CYTO_G_StdIntensity" 			type="DOUBLE" />
+			<attribute name="CYTO_G_Entropy" 				type="DOUBLE" /> 
+			<attribute name="CYTO_G_Energy" 				type="DOUBLE" /> 
+			<attribute name="CYTO_G_Skewness" 				type="DOUBLE" /> 
+			<attribute name="CYTO_G_Kurtosis" 				type="DOUBLE" />
+			<attribute name="CYTO_G_MeanGradMag" 			type="DOUBLE" /> 
+			<attribute name="CYTO_G_StdGradMag" 			type="DOUBLE" /> 
+			<attribute name="CYTO_G_EntropyGradMag" 		type="DOUBLE" /> 
+			<attribute name="CYTO_G_EnergyGradMag" 			type="DOUBLE" />
+			<attribute name="CYTO_G_SkewnessGradMag" 		type="DOUBLE" /> 
+			<attribute name="CYTO_G_KurtosisGradMag" 		type="DOUBLE" /> 
+			<attribute name="CYTO_G_SumCanny" 				type="DOUBLE" /> 
+			<attribute name="CYTO_G_MeanCanny"				type="DOUBLE" />  			
+		</table>	
+						
+	</tables>
+</loadingconfig>

@@ -1,0 +1,32 @@
+DROP TABLE PAIS.VALIDATION_PRECOMPUTE;
+CREATE TABLE PAIS.VALIDATION_PRECOMPUTE(
+    PAIS_UID			VARCHAR(64)   NOT NULL,
+    TILENAME			VARCHAR(64)   NOT NULL, 
+    MARKUP_ID			DECIMAL(30,0), 
+    AREA_OVERLAP_RATIO          DECIMAL(5,4), 
+    CENTROID_DISTANCE           DECIMAL(5,2)
+);
+
+IMPORT FROM "/tmp/precompute.exp" OF DEL METHOD P (1, 2, 3, 4, 5) MESSAGES "/tmp/precompute.imp.msg" INSERT INTO PAIS.VALIDATION_PRECOMPUTE (PAIS_UID, TILENAME, MARKUP_ID, AREA_OVERLAP_RATIO, CENTROID_DISTANCE);
+
+
+
+
+
+--DROP INDEX PAIS.precompute_mid;
+-- CREATE INDEX PAIS.precompute_mid ON PAIS.VALIDATION_PRECOMPUTE(pais_uid,tilename, markup_id);
+
+CREATE TABLE VALIDATION.NUCLEIPOINT(
+     PAIS_UID			VARCHAR(64)   NOT NULL,
+     X                          DOUBLE NOT NULL,           
+     Y                          DOUBLE NOT NULL,           
+     CLASS                      INTEGER
+);
+
+IMPORT FROM "/develop/pais/sql/production/query/validation/point_imp.txt" OF DEL MODIFIED BY COLDEL, METHOD P (1, 2, 3, 4) MESSAGES "/develop/pais/sql/production/query/validation/point_imp.msg" INSERT INTO VALIDATION.NUCLEIPOINT (PAIS_UID, X, Y, CLASS);
+
+RUNSTATS ON TABLE VALIDATION.NUCLEIPOINT ON ALL COLUMNS ALLOW WRITE ACCESS ;
+COMMIT WORK;
+
+
+EXPORT TO "/tmp/precompute_single.txt" OF DEL MODIFIED BY COLDEL, MESSAGES "/tmp/precomputesingle.msg" SELECT * FROM PAIS.VALIDATION_PRECOMPUTE where pais_uid ='astroII.1_20x_20x_NS-MORPH_1';

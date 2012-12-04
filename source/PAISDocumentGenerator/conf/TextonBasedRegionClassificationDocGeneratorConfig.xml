@@ -1,0 +1,33 @@
+<docgeneratorconfig>
+	<pais version = "1.0" />
+    <project name="In Silico Brain Tumor Research Project"  uid="emory.insilico" uri="cci.emory.edu/cms/projects/ISBTRC.html" />
+    <group name="Center for Comprehensive Informatics" uid="emory.cci" uri="http://www.cci.emory.edu" />
+    <user loginName="joedoe" name="Joe Doe"  uid="emory.joedoe" /> 
+    <study name="validation study" uid="AVP" />  
+    <method role="algorithm" name="NS-MORPH" sequenceNumber="1" />
+        
+    <image type="WholeSlideImageReference" scanningResolution="40X" nameEndToken=".svs"/>	
+	<patient noid="false" idStartPosition="9" idEndPosition="13" />
+	<anatomicEntity codeMeaning="Brain" codeValue="C12439" codingSchemeDesignator="NCI Thesaurus"  codingSchemeVersion=" 09.09" /> 
+	<equipment manufacturer = "Dummy manufacturer" manufacturerModelName= "Dummy Model" softwareVersion=" ver 1.0" /> <!-- #equipment -->
+	<specimen type="tissue slide" stain="hematoxylin stain" nameEndToken=".svs" /> <!--  nameStartToken=""  TCGA_HENRYFORD: ".ndpi"; TCGA: ".svs" -->	
+	<region coordinateStartToken=".svs-" coordinateEndToken=".ppm" width="4096" height="4096" coordinateReference="global" zoomResolution="20X"  coordinateResolution="40X" /> <!-- ndpi-, .tif  -->
+    
+	<calculation type="scalar;histogram" /> <!-- A semicolon separated list describing the type of each calculation. Only scalar and histogram are supported at the moment. -->
+	
+	<markup name="nucleus" format="chaincode" />
+
+	<algorithms>
+		<algorithm name="NS-MORPH" uid="emory.NS-MORPH"
+			uri="http://scm.cci.emory.edu/svn/imageanalysis" version="1.0" scope="all">
+			<parameters>
+				<parameter name="THR" 	 	dataType="double" 	value="0.9" />
+				<parameter name="T1" 	 	dataType="double" 	value="5" />
+				<parameter name="T2" 	 	dataType="double" 	value="4" />
+				<parameter name="G1" 		dataType="double" 	value="80" />
+				<parameter name="G2" 	 	dataType="double" 	value="45" />
+			</parameters>
+		</algorithm>
+	</algorithms>
+    
+</docgeneratorconfig>

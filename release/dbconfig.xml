@@ -1,0 +1,14 @@
+<dbconfig>
+  <db>
+        <host>hostURL</host>
+        <port>PortNumber</port>
+        <database>DatabaseName</database>
+        <username>UserName</username>
+        <passwd>UserPassword</passwd>
+        <autocommit>true</autocommit>
+  </db>
+    <markup>
+        <spatialtablename>PAIS.MARKUP_POLYGON</spatialtablename>
+        <largeboundary>false</largeboundary>
+    </markup>
+</dbconfig>
