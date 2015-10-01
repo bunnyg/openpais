@@ -1,0 +1,1 @@
+We have developed a Pathology Analytical Pathology Imaging Standards (PAIS) data management system to model, manage and query analytical results and human annotations of pathology images, and a Pathology Image Database System (PIDB) to model, manage, and query whole slide images.
